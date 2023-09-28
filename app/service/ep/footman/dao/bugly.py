@@ -10,17 +10,16 @@ from selenium.webdriver.chrome.options import Options
 browsermobPath = 'D:\\fyf\\tool\\browsermob-proxy-2.1.4\\bin\\browsermob-proxy'
 username = '972360526'
 password = '61241623FYFzwq'
-tokenFile = os.getcwd()+'./token.conf'
-cookiesFile = os.getcwd()+'./cookie.conf'
-chromedriver = os.getcwd()+"./chromedriver.exe"
+tokenFile = f'{os.getcwd()}./token.conf'
+cookiesFile = f'{os.getcwd()}./cookie.conf'
+chromedriver = f"{os.getcwd()}./chromedriver.exe"
 
 def writeResult(filePath, fileContext):
     if os.path.exists(filePath):
         os.remove(filePath)
-    f = open(filePath, 'w')
-    f.write(fileContext)
-    print(fileContext)
-    f.close()
+    with open(filePath, 'w') as f:
+        f.write(fileContext)
+        print(fileContext)
     return
 
 def GetCookieAndToken():
